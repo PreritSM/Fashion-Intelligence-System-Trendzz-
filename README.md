@@ -83,5 +83,5 @@ Auto-map detected trends to Flipkart catalog IDs.
 
 Improve the dashboard UX with richer visualizations and filters.
 
-### 📜 License
+## 📜 License
 This project is open-source under the MIT License.
