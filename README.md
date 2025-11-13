@@ -1,21 +1,87 @@
-# Fashion-Intelligence-System (Trendzz - for the Gen Z)
-## What it is and what it does?
-Trendzz is an web app which uses computer vision model to extract the current trends from social media (currently for Twitter) and categories them into searchable keywords for any Ecommerce website ie. the attributes of trending apparels are provided to the user so that they can buy the exact or most similar apparels from the ecommerce websites.
+# 👕 TrendZ (TrendZ for the GenZ)
 
-The tool also supports search parameters like search radius, trending metrics, time frames etc, so that the user can find trends in their surroundings and will not be fed by trends from distant lands or time frames they are not interested in.
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
+![Tech Stack](https://img.shields.io/badge/Stack-ML%20%7C%20Flask%20%7C%20React-blue)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-## How it does?
-The tool uses Twint python library which is an advanced Twitter scraping tool written in Python that allows for scraping Tweets from Twitter profiles without using Twitter's API. The images and data extracted is then fed to preliminary tester for brands and obvious attributes from tweet data like hashtags and links.
+> **Flipkart GRID 4.0 – Software Development Challenge**  
+> *Automated Fashion Trend Forecasting using Social Media Analytics & Computer Vision*
 
-The images then extracted are fed into two models :-
+---
 
-1. AWS Rekognition:- Rekognition Image is a deep learning-powered image recognition service that detects objects, scenes, and facial attributes. ( here, is used to predict apparel types like t-shirts, tops, tanks, etc.)
+## ⭐ Project Overview
+**TrendZ** is a full-stack ML-driven application that identifies real-time **fashion trends** from social media.  
+It scrapes geo-tagged Twitter images and analyzes them using a **dual-model pipeline**:  
+- **AWS Rekognition** for apparel detection  
+- **Custom CNN** for color & pattern classification  
 
-2. AIR-Clothing-MA:- The AIR-Clothing-MA(Multi Attributes) is a kind of multi-attributes classifier for clothing and its multi attributes. ( here, is used to predict the color and pattern type of the apparel) 
+This supports e-commerce teams with automated, data-backed trend forecasting.
 
-The attributes collected are stored in a CSV file for accessibility and the columns are the results of both the models and the result of the preliminary tests.
+---
+
+## 🚀 Features
+- 🔍 **Geo-spatial image scraping** via Twint (no API key required)  
+- 👕 **Dual-stage image analysis** (Object + Attribute detection)  
+- 📊 **Trend score ranking** to highlight emerging fashion signals  
+- 🖥️ **React dashboard** with sortable insights & source-image verification  
+- ☁️ **Hybrid inference pipeline** using Google Colab GPU with backend tunneling  
+
+---
+
+## 🧠 ML Architecture
+
+### 📌 Model Stack
+| Component        | Role                        | Tech              |
+|------------------|-----------------------------|-------------------|
+| AWS Rekognition  | Apparel-type detection      | Cloud Vision API  |
+| Custom CNN       | Color & pattern classification | TensorFlow/Keras |
+| Twint Scraper    | Tweet & image extraction    | Python            |
+| Inference Runtime| Large-batch processing      | Google Colab GPU  |
+
+---
+
+## 🏗️ System Architecture
+
 
 ![Trendzz system flow](https://user-images.githubusercontent.com/56505861/190875542-e30367e3-3fe3-4ed8-a00e-ec8163337bc3.png)
 
-### **Installation and Configuration details will be shared shortly, few environment variables needs to be edited before making it completely available for use.**
+## 🛠️ Installation
 
+### Backend (Flask)
+
+```bash
+git clone https://github.com/yourusername/TrendZ.git
+cd TrendZ/backend
+pip install -r requirements.txt
+python app.py
+Frontend (React)
+bash
+Copy code
+cd ../frontend
+npm install
+npm start
+```
+ML Inference (Google Colab)
+Upload the inference notebook to Google Colab.
+
+Run the notebook to start the inference server (expose via tunnel).
+
+Update the backend configuration with the tunnel URL.
+
+## 📈 Challenges & Solutions
+
+### 🚫 No local GPU for inference
+✔ Offloaded ML workloads to Colab GPU and connected via tunneling between Colab and the local Flask backend.
+
+### 🎨 Background noise causing false detections
+✔ Added confidence thresholds and heuristic checks; identified semantic segmentation as a future enhancement area.
+
+## 🔮 Future Improvements
+Add semantic segmentation to isolate apparel from backgrounds.
+
+Auto-map detected trends to Flipkart catalog IDs.
+
+Improve the dashboard UX with richer visualizations and filters.
+
+### 📜 License
+This project is open-source under the MIT License.
